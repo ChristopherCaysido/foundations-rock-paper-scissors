@@ -1,5 +1,4 @@
-let humanScore = 0
-let computerScore = 0
+
 
 function getComputerChoice(){
     let computerChoice
@@ -19,44 +18,55 @@ function getHumanChoice(){
     return userInput
 }
 
-function playRound(humanChoice,computerChoice){
-    let pick = humanChoice.toLowerCase()
-    console.log(pick)
-    console.log(computerChoice)
-    if(pick === computerChoice){
-        console.log("It's a tie")
-    } else if(pick === "paper"){
-        console.log(`Your Choice ${pick}`)
-        console.log(`Computer Choice ${computerChoice}`)
-        if(computerChoice === "scissors"){
-            console.log("Computer Wins")
-            computerScore++
-        } else {
-            console.log("You Win")
-            humanScore++
+
+
+function playGame(){
+    function playRound(humanChoice,computerChoice){
+        let pick = humanChoice.toLowerCase()
+        console.log(pick)
+        console.log(computerChoice)
+        if(pick === computerChoice){
+            console.log("It's a tie")
+        } else if(pick === "paper"){
+            console.log(`Your Choice ${pick}`)
+            console.log(`Computer Choice ${computerChoice}`)
+            if(computerChoice === "scissors"){
+                console.log("Computer Wins")
+                computerScore++
+            } else {
+                console.log("You Win")
+                humanScore++
+            }
+        } else if(pick === "rock"){
+            console.log(`Your Choice ${pick}`)
+            console.log(`Computer Choice ${computerChoice}`)
+            if(computerChoice === "paper"){
+                console.log("Computer Wins")
+                computerScore++
+            } else {
+                console.log("You Win")
+                humanScore++
         }
-    } else if(pick === "rock"){
-        console.log(`Your Choice ${pick}`)
-        console.log(`Computer Choice ${computerChoice}`)
-        if(computerChoice === "paper"){
-            console.log("Computer Wins")
-            computerScore++
-        } else {
-            console.log("You Win")
-            humanScore++
+        } else if(pick === "scissors"){
+            console.log(`Your Choice ${pick}`)
+            console.log(`Computer Choice ${computerChoice}`)
+            if(computerChoice === "rock"){
+                console.log("Computer Wins")
+                computerScore++
+            } else {
+                console.log("You Win")
+                humanScore++
+        } 
+        }
+        console.log(`Scores: \n Your Score: ${humanScore} \n Computer Score: ${computerScore}`)
     }
-    } else if(pick === "scissors"){
-        console.log(`Your Choice ${pick}`)
-        console.log(`Computer Choice ${computerChoice}`)
-        if(computerChoice === "rock"){
-            console.log("Computer Wins")
-            computerScore++
-        } else {
-            console.log("You Win")
-            humanScore++
-    } 
+    let humanScore = 0
+    let computerScore = 0
+    
+    for(let i = 0; i < 5 ; i++){
+        playRound(getHumanChoice(),getComputerChoice())
     }
-    console.log(`Scores: \n Your Score: ${humanScore} \n Computer Score: ${computerScore}`)
+    console.log(humanScore > computerScore ? "You Win" : "Computer Wins")
 }
 
-playRound(getHumanChoice(),getComputerChoice())
+playGame()
