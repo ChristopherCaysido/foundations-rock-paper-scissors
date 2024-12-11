@@ -10,3 +10,11 @@ function getComputerChoice(){
     }
     return computerChoice
 }
+
+function getHumanChoice(){
+    let userInput = prompt("Enter you choice rock, paper, scissor \n Note: answer is case sensitive", "Now your opponent will also decide")
+    if(userInput != ("rock"||"paper"||"scissors")){
+        console.log("Please select from rock, paper or scissors")
+    }
+    return userInput
+}
