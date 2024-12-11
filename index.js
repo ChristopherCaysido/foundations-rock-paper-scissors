@@ -16,8 +16,47 @@ function getComputerChoice(){
 
 function getHumanChoice(){
     let userInput = prompt("Enter you choice rock, paper, scissor \n Note: answer is case sensitive", "Now your opponent will also decide")
-    if(userInput != ("rock"||"paper"||"scissors")){
-        console.log("Please select from rock, paper or scissors")
-    }
     return userInput
 }
+
+function playRound(humanChoice,computerChoice){
+    let pick = humanChoice.toLowerCase()
+    console.log(pick)
+    console.log(computerChoice)
+    if(pick === computerChoice){
+        console.log("It's a tie")
+    } else if(pick === "paper"){
+        console.log(`Your Choice ${pick}`)
+        console.log(`Computer Choice ${computerChoice}`)
+        if(computerChoice === "scissors"){
+            console.log("Computer Wins")
+            computerScore++
+        } else {
+            console.log("You Win")
+            humanScore++
+        }
+    } else if(pick === "rock"){
+        console.log(`Your Choice ${pick}`)
+        console.log(`Computer Choice ${computerChoice}`)
+        if(computerChoice === "paper"){
+            console.log("Computer Wins")
+            computerScore++
+        } else {
+            console.log("You Win")
+            humanScore++
+    }
+    } else if(pick === "scissors"){
+        console.log(`Your Choice ${pick}`)
+        console.log(`Computer Choice ${computerChoice}`)
+        if(computerChoice === "rock"){
+            console.log("Computer Wins")
+            computerScore++
+        } else {
+            console.log("You Win")
+            humanScore++
+    } 
+    }
+    console.log(`Scores: \n Your Score: ${humanScore} \n Computer Score: ${computerScore}`)
+}
+
+playRound(getHumanChoice(),getComputerChoice())
